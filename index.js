@@ -348,16 +348,32 @@ function render(inputStr, options, callback) {
             return result; //[{id:'test',content:'hello',children:[]}];
         };
         locals.partial = partial;
-        locals.image_tag = function (image, altText, className) {
+        locals.image_tag = function (image, altText, className, isDiv) {
             var imageSource = "source/images/" + image;
             if (globalOptions.inline) {
                 var imgContent = safeReadFileSync(path.join(__dirname, imageSource));
                 imageSource = getBase64ImageSource(imageSource, imgContent);
             }
-            return '<img src="'+imageSource+'" class="' + className + '" alt="' + altText + '">';
+            if (isDiv) {
+                return '<div style="background-image: url(' + imageSource + ')" class="logo"></div>';
+            }
+            else {
+                return '<img src="'+imageSource+'" class="' + className + '" alt="' + altText + '">';
+            }
+        };
+        locals.favico = function(image) {
+            var imageSource = "source/images/favico.ico";
+            if (image) {
+                imageSource = "source/images/" + image;
+            }
+            if (globalOptions.inline) {
+                var imgContent = safeReadFileSync(path.join(__dirname, imageSource));
+                imageSource = getBase64ImageSource(imageSource, imgContent);
+            }
+            return '<link rel="shortcut icon" href="' + imageSource + '" />';
         };
         locals.logo_image_tag = function () {
-            if (!globalOptions.logo) return locals.image_tag('logo.png', 'Logo', 'logo');
+            if (!globalOptions.logo) return locals.image_tag('logo.png', 'Logo', 'logo', true);
             var imageSource = path.resolve(process.cwd(), globalOptions.logo);
             var imgContent = safeReadFileSync(imageSource);
             if (globalOptions.inline) {
@@ -367,9 +383,9 @@ function render(inputStr, options, callback) {
                 fs.writeFileSync(path.join(__dirname, logoPath), imgContent);
                 imageSource = logoPath;
             }
-            var html = '<img src="' + imageSource + '" class="logo" alt="Logo">';
+            var html = '<div style="background-image: url(' + imageSource + ')" class="logo"></div>';
             if (globalOptions['logo-url']) {
-                html = '<a href="' + md.utils.escapeHtml(globalOptions['logo-url']) + '">' + html + '</a>';
+                html = '<a class="logo-container" href="' + md.utils.escapeHtml(globalOptions['logo-url']) + '">' + html + '</a>';
             }
             return html;
         };
