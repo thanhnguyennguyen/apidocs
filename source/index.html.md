@@ -240,6 +240,283 @@ curl https://rpc.tomochain.com \
 }
 ```
 
+## eth_getBlockByNumber
+
+Returns the block data of the given BLOCKNUMBER.
+
+#### REQUEST PARAMS
+- `BLOCKNUMBER` _[required]_ - a hex code of an integer representing the `BLOCKNUMBER` or one of the following special params:
+    - `latest`: get block data of the latest block
+    - `pending`:  get block data of pending block
+    - `earliest`: get the genesis block
+
+- `FULLTX` _[required]_ - a boolean value specified whether you want to get transactions list or not
+
+> Code samples 
+
+```shell
+curl https://rpc.tomochain.com \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params": ["0x0" , true],"id":1}'
+
+```
+
+### RESPONSE
+
+#### RESULT FIELDS
+- `RETURN VALUE` - block data of the given `BLOCKNUMBER`
+
+> Example response
+
+> 200 Response
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "difficulty": "0x1",
+    "extraData": "0x00000000000000000000000000000000000000000000000000000000000000001b82c4bf317fcafe3d77e8b444c82715d216afe845b7bd987fa22c9bac89b71f0ded03f6e150ba31ad670b2b166684657ffff95f4810380ae7381e9bce41231d5dd8cdd7499e418b648c00af75d184a2f9aba09a6fa4a46fb1a6a3919b027d9cac5aa6890000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "gasLimit": "0x47b760",
+    "gasUsed": "0x0",
+    "hash": "0x9326145f8a2c8c00bbe13afc7d7f3d9c868b5ef39d89f2f4e9390e9720298624",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "miner": "0x0000000000000000000000000000000000000000",
+    "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "nonce": "0x0000000000000000",
+    "number": "0x0",
+    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "penalties": "0x",
+    "receiptsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+    "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+    "size": "0x2c5",
+    "stateRoot": "0x1394d6e0a3d48b3d25da2206de068a1444108280c60d360bd9d5a870004529ee",
+    "timestamp": "0x5c1358f5",
+    "totalDifficulty": "0x1",
+    "transactions": [],
+    "transactionsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+    "uncles": [],
+    "validator": "0x",
+    "validators": "0x"
+  }
+}
+
+```
+
+
+## eth_getBlockByHash
+
+Returns the block data of the given `BLOCKHASH`.
+
+#### REQUEST PARAMS
+- `BLOCKHASH` _[required]_ - a string representing a `BLOCKHASH` 
+- `FULLTX` _[required]_ - a boolean value specified whether you want to get transactions list or not
+
+> Code samples 
+
+```shell
+curl https://rpc.tomochain.com \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d '{"jsonrpc":"2.0","method":"eth_getBlockByHash","params": ["0x9326145f8a2c8c00bbe13afc7d7f3d9c868b5ef39d89f2f4e9390e9720298624" , true],"id":1}'
+
+```
+
+### RESPONSE
+
+#### RESULT FIELDS
+- `RETURN VALUE` - block data of the given `BLOCKHASH`
+
+> Example response
+
+> 200 Response
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "difficulty": "0x1",
+    "extraData": "0x00000000000000000000000000000000000000000000000000000000000000001b82c4bf317fcafe3d77e8b444c82715d216afe845b7bd987fa22c9bac89b71f0ded03f6e150ba31ad670b2b166684657ffff95f4810380ae7381e9bce41231d5dd8cdd7499e418b648c00af75d184a2f9aba09a6fa4a46fb1a6a3919b027d9cac5aa6890000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "gasLimit": "0x47b760",
+    "gasUsed": "0x0",
+    "hash": "0x9326145f8a2c8c00bbe13afc7d7f3d9c868b5ef39d89f2f4e9390e9720298624",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "miner": "0x0000000000000000000000000000000000000000",
+    "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "nonce": "0x0000000000000000",
+    "number": "0x0",
+    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "penalties": "0x",
+    "receiptsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+    "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+    "size": "0x2c5",
+    "stateRoot": "0x1394d6e0a3d48b3d25da2206de068a1444108280c60d360bd9d5a870004529ee",
+    "timestamp": "0x5c1358f5",
+    "totalDifficulty": "0x1",
+    "transactions": [],
+    "transactionsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+    "uncles": [],
+    "validator": "0x",
+    "validators": "0x"
+  }
+}
+
+```
+
+
+## eth_getBlockSignersByNumber
+
+Returns the signers set of the block of given `BLOCKNUMBER`.
+
+#### REQUEST PARAMS
+- `BLOCKNUMBER` _[required]_ - a hex code of an integer representing the `BLOCKNUMBER` or one of the following special params:
+    - `latest`: get block data of the latest block
+    - `pending`:  get block data of pending block
+    - `earliest`: get the genesis block
+
+> Code samples 
+
+```shell
+curl https://rpc.tomochain.com \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d '{"jsonrpc":"2.0","method":"eth_getBlockSignersByNumber","params": ["0x1"],"id":1}'
+
+```
+
+### RESPONSE
+
+#### RESULT FIELDS
+- `SIGNERS` - signers set of the block of given `BLOCKNUMBER`
+
+> Example response
+
+> 200 Response
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    "0xffc679dcdf444d2eeb0491a998e7902b411ccf20"
+  ]
+}
+
+```
+
+
+## eth_getBlockSignersByHash
+
+Returns the signers set of the block of given `BLOCKHASH`.
+
+#### REQUEST PARAMS
+- `BLOCKHASH` _[required]_ - a string representing a `BLOCKHASH` 
+
+> Code samples 
+
+```shell
+curl https://rpc.tomochain.com \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d '{"jsonrpc":"2.0","method":"eth_getBlockSignersByHash","params": ["0x9326145f8a2c8c00bbe13afc7d7f3d9c868b5ef39d89f2f4e9390e9720298624"],"id":1}'
+
+```
+
+### RESPONSE
+
+#### RESULT FIELDS
+- `SIGNERS` - signers set of the block of given `BLOCKHASH`
+
+> Example response
+
+> 200 Response
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    "0xffc679dcdf444d2eeb0491a998e7902b411ccf20"
+  ]
+}
+
+```
+
+
+## eth_getBlockFinalityByNumber
+
+Returns the the finality of the block of given `BLOCKNUMBER`.
+
+#### REQUEST PARAMS
+- `BLOCKNUMBER` _[required]_ - a hex code of an integer representing the `BLOCKNUMBER` or one of the following special params:
+    - `latest`: get block data of the latest block
+    - `pending`:  get block data of pending block
+    - `earliest`: get the genesis block
+
+> Code samples 
+
+```shell
+curl https://rpc.tomochain.com \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d '{"jsonrpc":"2.0","method":"eth_getBlockFinalityByNumber","params": ["0x1"],"id":1}'
+
+```
+
+### RESPONSE
+
+#### RESULT FIELDS
+- `BLOCK_FINALITY` - integer of the the finality of the block of given `BLOCKNUMBER`
+
+> Example response
+
+> 200 Response
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": 33
+}
+
+```
+
+
+## eth_getBlockFinalityByHash
+
+Returns the signers set of the block of given `BLOCKHASH`.
+
+#### REQUEST PARAMS
+- `BLOCKHASH` _[required]_ - a string representing a `BLOCKHASH` 
+
+> Code samples 
+
+```shell
+curl https://rpc.tomochain.com \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d '{"jsonrpc":"2.0","method":"eth_getBlockFinalityByHash","params": ["0xc186660e3cdd390cf4c7861ebc7ec358f0a5c258f0dec324c44581a3abdef90f"],"id":1}'
+
+```
+
+### RESPONSE
+
+#### RESULT FIELDS
+- `BLOCK_FINALITY` - integer of the the finality of the block of given `BLOCKHASH`
+
+> Example response
+
+> 200 Response
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": 33
+}
+```
 
 
 <h1 id="tomomaster-apis">TomoMaster APIs v1.0.0</h1>
