@@ -10,6 +10,7 @@ install:
 
 script:
 - node shins.js
+- node buildstyle.js
 
 deploy:
   provider: pages
