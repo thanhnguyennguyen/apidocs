@@ -518,6 +518,1319 @@ curl https://rpc.tomochain.com \
 }
 ```
 
+<h1 id="tomoscan-apis">TomoScan APIs v1.0.0</h1>
+
+> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
+
+TomoScan APIs
+
+License: <a href="https://github.com/tomochain/tomoscan">Github</a>
+
+Base URL: https://scan.tomochain.com
+
+<h1 id="tomoscan-apis-accounts">Accounts</h1>
+
+Accounts API
+
+## Get list accounts
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET /api/accounts
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('/api/accounts',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "/api/accounts", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.get '/api/accounts',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+
+r = requests.get('/api/accounts', params={
+
+)
+
+print r.json()
+
+```
+
+`GET /api/accounts`
+
+<h3 id="get-list-accounts-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|page|query|number|false|default = 1|
+|limit|query|number|false|default 20, maximum = 50|
+
+<h3 id="get-list-accounts-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Get account detail
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET /api/accounts/{hash}
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('/api/accounts/{hash}',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "/api/accounts/{hash}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.get '/api/accounts/{hash}',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+
+r = requests.get('/api/accounts/{hash}', params={
+
+)
+
+print r.json()
+
+```
+
+`GET /api/accounts/{hash}`
+
+<h3 id="get-account-detail-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|hash|path|string|true|account address|
+
+<h3 id="get-account-detail-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Get list block create
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET /api/accounts/{hash}/mined
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('/api/accounts/{hash}/mined',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "/api/accounts/{hash}/mined", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.get '/api/accounts/{hash}/mined',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+
+r = requests.get('/api/accounts/{hash}/mined', params={
+
+)
+
+print r.json()
+
+```
+
+`GET /api/accounts/{hash}/mined`
+
+<h3 id="get-list-block-create-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|hash|path|string|true|account address|
+|page|query|number|false|default = 1|
+|limit|query|number|false|default 20, maximum = 50|
+
+<h3 id="get-list-block-create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Get list token transactions. Require 1 of 2 conditions - address | token
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET /api/token-txs
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('/api/token-txs',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "/api/token-txs", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.get '/api/token-txs',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+
+r = requests.get('/api/token-txs', params={
+
+)
+
+print r.json()
+
+```
+
+`GET /api/token-txs`
+
+<h3 id="get-list-token-transactions.-require-1-of-2-conditions---address-|-token-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|address|query|string|false|account address|
+|token|path|string|true|token address|
+|page|query|number|false|default = 1|
+|limit|query|number|false|default 20, maximum = 50|
+
+<h3 id="get-list-token-transactions.-require-1-of-2-conditions---address-|-token-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Get list token holder. Require 1 of 2 conditions - address | hassh
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET /api/token-holders
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('/api/token-holders',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "/api/token-holders", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.get '/api/token-holders',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+
+r = requests.get('/api/token-holders', params={
+
+)
+
+print r.json()
+
+```
+
+`GET /api/token-holders`
+
+<h3 id="get-list-token-holder.-require-1-of-2-conditions---address-|-hassh-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|address|query|string|false|token address|
+|hash|path|string|true|account address|
+|page|query|number|false|default = 1|
+|limit|query|number|false|default 20, maximum = 50|
+
+<h3 id="get-list-token-holder.-require-1-of-2-conditions---address-|-hassh-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<h1 id="tomoscan-apis-blocks">Blocks</h1>
+
+Blocks API
+
+## Get list blocks
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET /api/blocks
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('/api/blocks',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "/api/blocks", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.get '/api/blocks',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+
+r = requests.get('/api/blocks', params={
+
+)
+
+print r.json()
+
+```
+
+`GET /api/blocks`
+
+<h3 id="get-list-blocks-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|page|query|number|false|default = 1|
+|limit|query|number|false|default 20, maximum = 50|
+
+<h3 id="get-list-blocks-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Get block detail
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET /api/blocks/{hash}
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('/api/blocks/{hash}',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "/api/blocks/{hash}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.get '/api/blocks/{hash}',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+
+r = requests.get('/api/blocks/{hash}', params={
+
+)
+
+print r.json()
+
+```
+
+`GET /api/blocks/{hash}`
+
+<h3 id="get-block-detail-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|hash|path|string|true|block number or block hash|
+
+<h3 id="get-block-detail-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Get list signers of a block
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET /api/blocks/signers/{blockNumber}
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('/api/blocks/signers/{blockNumber}',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "/api/blocks/signers/{blockNumber}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.get '/api/blocks/signers/{blockNumber}',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+
+r = requests.get('/api/blocks/signers/{blockNumber}', params={
+
+)
+
+print r.json()
+
+```
+
+`GET /api/blocks/signers/{blockNumber}`
+
+<h3 id="get-list-signers-of-a-block-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|blockNumber|path|number|true|account address|
+
+<h3 id="get-list-signers-of-a-block-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<h1 id="tomoscan-apis-transactions">Transactions</h1>
+
+Transactions API
+
+## Get list blocks. Params limit & page & ((address & tx_account) | block | type)
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET /api/txs
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('/api/txs',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "/api/txs", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.get '/api/txs',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+
+r = requests.get('/api/txs', params={
+
+)
+
+print r.json()
+
+```
+
+`GET /api/txs`
+
+<h3 id="get-list-blocks.-params-limit-&-page-&-((address-&-tx_account)-|-block-|-type)-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|page|query|number|false|default = 1|
+|limit|query|number|false|default 20, maximum = 50|
+|address|query|string|false|list tx of address, group with tx_account|
+|tx_account|query|string|false|in|out, default = all, group with address|
+|block|query|number|false|list tx of a block|
+|type|query|string|false|signTxs|otherTxs|pending|all|
+
+<h3 id="get-list-blocks.-params-limit-&-page-&-((address-&-tx_account)-|-block-|-type)-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Get transaction detail
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET /api/txs/{hash}
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('/api/txs/{hash}',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "/api/txs/{hash}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.get '/api/txs/{hash}',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+
+r = requests.get('/api/txs/{hash}', params={
+
+)
+
+print r.json()
+
+```
+
+`GET /api/txs/{hash}`
+
+<h3 id="get-transaction-detail-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|hash|path|string|true|transaction hash|
+
+<h3 id="get-transaction-detail-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<h1 id="tomoscan-apis-tokens">Tokens</h1>
+
+Tokens API
+
+## Get token detail
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET /api/tokens/{hash}
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('/api/tokens/{hash}',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "/api/tokens/{hash}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.get '/api/tokens/{hash}',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+
+r = requests.get('/api/tokens/{hash}', params={
+
+)
+
+print r.json()
+
+```
+
+`GET /api/tokens/{hash}`
+
+<h3 id="get-token-detail-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|hash|path|string|true|token address|
+
+<h3 id="get-token-detail-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<h1 id="tomoscan-apis-token">Token</h1>
+
+## Get list tokens
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET /api/tokens
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('/api/tokens',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "/api/tokens", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.get '/api/tokens',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+
+r = requests.get('/api/tokens', params={
+
+)
+
+print r.json()
+
+```
+
+`GET /api/tokens`
+
+<h3 id="get-list-tokens-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|page|query|number|false|default = 1|
+|limit|query|number|false|default 20, maximum = 50|
+
+<h3 id="get-list-tokens-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<h1 id="tomoscan-apis-rewards">Rewards</h1>
+
+## Get list rewards of a voter
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET /api/rewards/{voter}
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('/api/rewards/{voter}',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "/api/rewards/{voter}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.get '/api/rewards/{voter}',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+
+r = requests.get('/api/rewards/{voter}', params={
+
+)
+
+print r.json()
+
+```
+
+`GET /api/rewards/{voter}`
+
+<h3 id="get-list-rewards-of-a-voter-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|voter|path|number|true|account address|
+|page|query|number|false|default = 1|
+|limit|query|number|false|default 20, maximum = 50|
+
+<h3 id="get-list-rewards-of-a-voter-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Get list reward of an epoch
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET /api/rewards/epoch/{epochNumber}
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('/api/rewards/epoch/{epochNumber}',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "/api/rewards/epoch/{epochNumber}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.get '/api/rewards/epoch/{epochNumber}',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+
+r = requests.get('/api/rewards/epoch/{epochNumber}', params={
+
+)
+
+print r.json()
+
+```
+
+`GET /api/rewards/epoch/{epochNumber}`
+
+<h3 id="get-list-reward-of-an-epoch-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|epochNumber|path|number|true|epoch number|
+|hash|path|string|true|account address|
+
+<h3 id="get-list-reward-of-an-epoch-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 
 <h1 id="tomomaster-apis">TomoMaster APIs v1.0.0</h1>
 
@@ -2322,1317 +3635,4 @@ This operation does not require authentication
 |---|---|---|---|---|
 |items|[object]|false|none|Candidate's transactions array|
 |total|number|false|none|Number of candidate|
-
-<h1 id="tomoscan-apis">TomoScan APIs v1.0.0</h1>
-
-> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
-
-TomoScan APIs
-
-License: <a href="https://github.com/tomochain/tomoscan">Github</a>
-
-Base URL: https://scan.tomochain.com
-
-<h1 id="tomoscan-apis-accounts">Accounts</h1>
-
-Accounts API
-
-## Get list accounts
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET /api/accounts
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('/api/accounts',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "/api/accounts", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.get '/api/accounts',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-
-r = requests.get('/api/accounts', params={
-
-)
-
-print r.json()
-
-```
-
-`GET /api/accounts`
-
-<h3 id="get-list-accounts-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|page|query|number|false|default = 1|
-|limit|query|number|false|default 20, maximum = 50|
-
-<h3 id="get-list-accounts-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## Get account detail
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET /api/accounts/{hash}
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('/api/accounts/{hash}',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "/api/accounts/{hash}", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.get '/api/accounts/{hash}',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-
-r = requests.get('/api/accounts/{hash}', params={
-
-)
-
-print r.json()
-
-```
-
-`GET /api/accounts/{hash}`
-
-<h3 id="get-account-detail-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|hash|path|string|true|account address|
-
-<h3 id="get-account-detail-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## Get list block create
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET /api/accounts/{hash}/mined
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('/api/accounts/{hash}/mined',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "/api/accounts/{hash}/mined", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.get '/api/accounts/{hash}/mined',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-
-r = requests.get('/api/accounts/{hash}/mined', params={
-
-)
-
-print r.json()
-
-```
-
-`GET /api/accounts/{hash}/mined`
-
-<h3 id="get-list-block-create-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|hash|path|string|true|account address|
-|page|query|number|false|default = 1|
-|limit|query|number|false|default 20, maximum = 50|
-
-<h3 id="get-list-block-create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## Get list token transactions. Require 1 of 2 conditions - address | token
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET /api/token-txs
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('/api/token-txs',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "/api/token-txs", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.get '/api/token-txs',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-
-r = requests.get('/api/token-txs', params={
-
-)
-
-print r.json()
-
-```
-
-`GET /api/token-txs`
-
-<h3 id="get-list-token-transactions.-require-1-of-2-conditions---address-|-token-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|address|query|string|false|account address|
-|token|path|string|true|token address|
-|page|query|number|false|default = 1|
-|limit|query|number|false|default 20, maximum = 50|
-
-<h3 id="get-list-token-transactions.-require-1-of-2-conditions---address-|-token-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## Get list token holder. Require 1 of 2 conditions - address | hassh
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET /api/token-holders
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('/api/token-holders',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "/api/token-holders", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.get '/api/token-holders',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-
-r = requests.get('/api/token-holders', params={
-
-)
-
-print r.json()
-
-```
-
-`GET /api/token-holders`
-
-<h3 id="get-list-token-holder.-require-1-of-2-conditions---address-|-hassh-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|address|query|string|false|token address|
-|hash|path|string|true|account address|
-|page|query|number|false|default = 1|
-|limit|query|number|false|default 20, maximum = 50|
-
-<h3 id="get-list-token-holder.-require-1-of-2-conditions---address-|-hassh-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-<h1 id="tomoscan-apis-blocks">Blocks</h1>
-
-Blocks API
-
-## Get list blocks
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET /api/blocks
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('/api/blocks',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "/api/blocks", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.get '/api/blocks',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-
-r = requests.get('/api/blocks', params={
-
-)
-
-print r.json()
-
-```
-
-`GET /api/blocks`
-
-<h3 id="get-list-blocks-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|page|query|number|false|default = 1|
-|limit|query|number|false|default 20, maximum = 50|
-
-<h3 id="get-list-blocks-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## Get block detail
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET /api/blocks/{hash}
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('/api/blocks/{hash}',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "/api/blocks/{hash}", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.get '/api/blocks/{hash}',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-
-r = requests.get('/api/blocks/{hash}', params={
-
-)
-
-print r.json()
-
-```
-
-`GET /api/blocks/{hash}`
-
-<h3 id="get-block-detail-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|hash|path|string|true|block number or block hash|
-
-<h3 id="get-block-detail-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## Get list signers of a block
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET /api/blocks/signers/{blockNumber}
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('/api/blocks/signers/{blockNumber}',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "/api/blocks/signers/{blockNumber}", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.get '/api/blocks/signers/{blockNumber}',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-
-r = requests.get('/api/blocks/signers/{blockNumber}', params={
-
-)
-
-print r.json()
-
-```
-
-`GET /api/blocks/signers/{blockNumber}`
-
-<h3 id="get-list-signers-of-a-block-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|blockNumber|path|number|true|account address|
-
-<h3 id="get-list-signers-of-a-block-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-<h1 id="tomoscan-apis-transactions">Transactions</h1>
-
-Transactions API
-
-## Get list blocks. Params limit & page & ((address & tx_account) | block | type)
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET /api/txs
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('/api/txs',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "/api/txs", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.get '/api/txs',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-
-r = requests.get('/api/txs', params={
-
-)
-
-print r.json()
-
-```
-
-`GET /api/txs`
-
-<h3 id="get-list-blocks.-params-limit-&-page-&-((address-&-tx_account)-|-block-|-type)-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|page|query|number|false|default = 1|
-|limit|query|number|false|default 20, maximum = 50|
-|address|query|string|false|list tx of address, group with tx_account|
-|tx_account|query|string|false|in|out, default = all, group with address|
-|block|query|number|false|list tx of a block|
-|type|query|string|false|signTxs|otherTxs|pending|all|
-
-<h3 id="get-list-blocks.-params-limit-&-page-&-((address-&-tx_account)-|-block-|-type)-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## Get transaction detail
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET /api/txs/{hash}
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('/api/txs/{hash}',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "/api/txs/{hash}", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.get '/api/txs/{hash}',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-
-r = requests.get('/api/txs/{hash}', params={
-
-)
-
-print r.json()
-
-```
-
-`GET /api/txs/{hash}`
-
-<h3 id="get-transaction-detail-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|hash|path|string|true|transaction hash|
-
-<h3 id="get-transaction-detail-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-<h1 id="tomoscan-apis-tokens">Tokens</h1>
-
-Tokens API
-
-## Get token detail
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET /api/tokens/{hash}
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('/api/tokens/{hash}',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "/api/tokens/{hash}", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.get '/api/tokens/{hash}',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-
-r = requests.get('/api/tokens/{hash}', params={
-
-)
-
-print r.json()
-
-```
-
-`GET /api/tokens/{hash}`
-
-<h3 id="get-token-detail-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|hash|path|string|true|token address|
-
-<h3 id="get-token-detail-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-<h1 id="tomoscan-apis-token">Token</h1>
-
-## Get list tokens
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET /api/tokens
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('/api/tokens',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "/api/tokens", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.get '/api/tokens',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-
-r = requests.get('/api/tokens', params={
-
-)
-
-print r.json()
-
-```
-
-`GET /api/tokens`
-
-<h3 id="get-list-tokens-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|page|query|number|false|default = 1|
-|limit|query|number|false|default 20, maximum = 50|
-
-<h3 id="get-list-tokens-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-<h1 id="tomoscan-apis-rewards">Rewards</h1>
-
-## Get list rewards of a voter
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET /api/rewards/{voter}
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('/api/rewards/{voter}',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "/api/rewards/{voter}", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.get '/api/rewards/{voter}',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-
-r = requests.get('/api/rewards/{voter}', params={
-
-)
-
-print r.json()
-
-```
-
-`GET /api/rewards/{voter}`
-
-<h3 id="get-list-rewards-of-a-voter-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|voter|path|number|true|account address|
-|page|query|number|false|default = 1|
-|limit|query|number|false|default 20, maximum = 50|
-
-<h3 id="get-list-rewards-of-a-voter-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## Get list reward of an epoch
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET /api/rewards/epoch/{epochNumber}
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('/api/rewards/epoch/{epochNumber}',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "/api/rewards/epoch/{epochNumber}", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.get '/api/rewards/epoch/{epochNumber}',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-
-r = requests.get('/api/rewards/epoch/{epochNumber}', params={
-
-)
-
-print r.json()
-
-```
-
-`GET /api/rewards/epoch/{epochNumber}`
-
-<h3 id="get-list-reward-of-an-epoch-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|epochNumber|path|number|true|epoch number|
-|hash|path|string|true|account address|
-
-<h3 id="get-list-reward-of-an-epoch-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Server Internal Error|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
 
