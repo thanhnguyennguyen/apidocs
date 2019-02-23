@@ -45,9 +45,6 @@ curl https://rpc.tomochain.com \
 
 - `ADDRESSES` - arrays of hex codes as strings representing the addresses owned by the client
 
-NOTE: While this JSON-RPC method is supported by Infura, it will *not* return any accounts.  Infura does not support "unlocking" accounts.  Instead, users should send already signed raw 
-transactions using `eth_sendRawTransaction`.
-
 > Example responses
 
 > 200 Response
