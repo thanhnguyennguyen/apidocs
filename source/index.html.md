@@ -680,6 +680,52 @@ curl https://rpc.tomochain.com \
 }
 ```
 
+
+## eth_getCandidateStatus
+
+Returns the status of the candidate of given `COINBASE_ADDRESS`.
+
+#### REQUEST PARAMS
+- `COINBASE_ADDRESS` _[required]_ - a string representing a `COINBASE_ADDRESS` (length: 40, start with `0x` )
+- `EPOCH_NUMBER` _[required]_ - a hex code of an integer representing the `EPOCH_NUMBER` or the following special param:
+    - `latest`: get the status of candidate at the latest epoch
+
+
+##### Note
+ In the <a target="_blank" href="https://github.com/tomochain/tomochain/releases/tag/v1.3.0" >Tomochain release 1.3.0</a> , we support the latest epoch only
+
+> Code samples 
+
+```shell
+curl https://rpc.tomochain.com \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d '{"jsonrpc":"2.0","method":"eth_getCandidateStatus","params": ["0x1d50df657b6dce50bac634bf18e2d986d807e940", "latest"],"id":1}'
+
+```
+
+### RESPONSE
+
+#### RESULT FIELDS
+- `CANDIDATE_STATUS` - a string representing status of the candicate of given `COINBASE_ADDRESS`
+  - `MASTERNODE`: if the candidate is a masternode
+  - `SLASHED`: if the candidate is slashed
+  - `PROPOSED`: if the candidate is proposed, have not been a masternode yet
+  - empty string: if it's not a candidate
+
+> Example response
+
+> 200 Response
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "MASTERNODE"
+}
+```
+
+
 ## eth_getTransactionByHash
 
 Returns information about a transaction for a given hash.
