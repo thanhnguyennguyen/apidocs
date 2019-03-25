@@ -681,18 +681,90 @@ curl https://rpc.tomochain.com \
 ```
 
 
+## eth_getCandidates
+
+Returns the statuses of all candidates at a specific epoch
+
+#### REQUEST PARAMS
+- `EPOCH_NUMBER` _[required]_ - a hex code of an integer representing the `EPOCH_NUMBER` or the following special param:
+    - `latest`: get the status of candidate at the current time
+
+
+> Code samples 
+
+```shell
+curl https://rpc.tomochain.com \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d '{"jsonrpc":"2.0","method":"eth_getCandidates","params": ["latest"],"id":1}'
+
+```
+
+### RESPONSE
+
+#### RESULT FIELDS
+
+- `EPOCH` - the epoch number of the query of this request
+- `CANDIDATES` - list of candidates along with their statuses and capacities
+  - `STATUS` - a string representing status of the corresponding candidate
+    - `MASTERNODE` - if the candidate is a masternode
+    - `SLASHED` - if the candidate is slashed
+    - `PROPOSED` - if the candidate is proposed, have not been a masternode yet
+    - empty string - if it's not a candidate
+  - `CAPACITY` - capacity of the corresponding candidate
+- `SUCCESS` - true if the request is successful, otherwise it's false
+> Example response
+
+> 200 Response
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "candidates": {
+      "0x059F8114D61AEb2043FA59D39e3872792F653360": {
+        "capacity": 52000,
+        "status": "MASTERNODE"
+      },
+      "0x4130393462664146336537643436314131453641": {
+        "capacity": 51000,
+        "status": "PROPOSED"
+      },
+      "0x66414BC8D36eCEa132F969B7596cAb2Ba1818b7d": {
+        "capacity": 52000,
+        "status": "SLASHED"
+      },
+      "0xB7e038b0229A97c9CB7AD798aA51757E1017A7D4": {
+        "capacity": 52000,
+        "status": "MASTERNODE"
+      },
+      "0xDD1BE874E267E5661faEA094bfAF3e7d461A1E6A": {
+        "capacity": 52000,
+        "status": "MASTERNODE"
+      },
+      "0xa8D38FB29CDA4Ca011b430a680886fB4CA7F3043": {
+        "capacity": 52000,
+        "status": "MASTERNODE"
+      }
+    },
+    "epoch": 1786,
+    "success": true
+  }
+}
+
+```
+
+
 ## eth_getCandidateStatus
 
-Returns the status of the candidate of given `COINBASE_ADDRESS`.
+Returns the status of the candidate of given `COINBASE_ADDRESS` at a specific epoch
 
 #### REQUEST PARAMS
 - `COINBASE_ADDRESS` _[required]_ - a string representing a `COINBASE_ADDRESS` (length: 40, start with `0x` )
 - `EPOCH_NUMBER` _[required]_ - a hex code of an integer representing the `EPOCH_NUMBER` or the following special param:
-    - `latest`: get the status of candidate at the latest epoch
+    - `latest`: get the status of candidate at the current time
 
-
-##### Note
- In the <a target="_blank" href="https://github.com/tomochain/tomochain/releases/tag/v1.3.0" >Tomochain release 1.3.0</a> , we support the latest epoch only
 
 > Code samples 
 
@@ -707,12 +779,14 @@ curl https://rpc.tomochain.com \
 ### RESPONSE
 
 #### RESULT FIELDS
-- `CANDIDATE_STATUS` - a string representing status of the candicate of given `COINBASE_ADDRESS`
-  - `MASTERNODE`: if the candidate is a masternode
-  - `SLASHED`: if the candidate is slashed
-  - `PROPOSED`: if the candidate is proposed, have not been a masternode yet
-  - empty string: if it's not a candidate
-
+- `STATUS` - a string representing status of the candicate of given `COINBASE_ADDRESS`
+  - `MASTERNODE` - if the candidate is a masternode
+  - `SLASHED` - if the candidate is slashed
+  - `PROPOSED` - if the candidate is proposed, have not been a masternode yet
+  - empty string - if it's not a candidate
+- `CAPACITY` - capacity of the candidate
+- `EPOCH` - the epoch number of the query of this request
+- `SUCCESS` - true if the request is successful, otherwise it's false
 > Example response
 
 > 200 Response
@@ -721,7 +795,12 @@ curl https://rpc.tomochain.com \
 {
   "jsonrpc": "2.0",
   "id": 1,
-  "result": "MASTERNODE"
+  "result": {
+    "capacity": 51000,
+    "epoch": 1727,
+    "status": "PROPOSED",
+    "success": true
+  }
 }
 ```
 
